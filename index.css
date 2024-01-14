@@ -1,3 +1,24 @@
-#heading{
-    color:blue;
+.header{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+}
+
+.logo{
+    width: 150px;
+}
+
+.nav-items{
+    padding: 2%;
+}
+
+.nav-items > ul{
+    display: flex;
+    list-style-type: none;
+}
+
+.nav-items > ul >li{
+    font-size: 20px;
+    font-weight: 700;
+    padding: 0 15px;
 }
