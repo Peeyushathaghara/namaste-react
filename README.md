@@ -23,3 +23,20 @@ npx parcel build entryfile - for building production file
 in package.json mention under the scripts key different commands and then run using...
 npm run scriptkeyname
 
+//Order food app
+// Headers
+//     logo
+//     nav-items
+// Body
+//     search
+//     restaurant container
+//     - restaurant card
+// Footer
+//     copyright
+//     links
+//     address
+//     contact
+
+2 types of exports and imports
+1. default export and imports
+2. named export and imports - used when we have to export multiples things from a single file and while importing we need to import inside curly braces.
