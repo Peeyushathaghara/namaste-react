@@ -40,3 +40,10 @@ npm run scriptkeyname
 2 types of exports and imports
 1. default export and imports
 2. named export and imports - used when we have to export multiples things from a single file and while importing we need to import inside curly braces.
+
+React hooks
+normal javascript functions
+2 most imp hooks in react are
+useState() - use to generate powerful state variables
+whenever a state variables updates/changes react rerenders its components. 
+useEffect()

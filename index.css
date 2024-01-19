@@ -57,3 +57,17 @@
 .ratings>span{
     margin-right:20px;
 }
+
+.top-rated-filter{
+    padding:3px;
+}
+
+.filer-container{
+    margin: 20px 0 ;
+}
+
+.filer-container>button{
+    padding: 5px;
+    margin-right: 20px;
+    cursor: pointer;
+}

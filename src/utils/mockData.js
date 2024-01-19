@@ -1724,18 +1724,11 @@ const resList = [
       image: {
         url: "https://b.zmtcdn.com/data/dish_photos/6d0/a959f51d106c8c56d915f292c61946d0.jpg",
       },
-      o2FeaturedImage: {
-        url: "https://b.zmtcdn.com/data/pictures/0/3400750/9239be81971c9d46d0cafc8023656984_o2_featured_v2.jpg",
-      },
       rating: {
         has_fake_reviews: 0,
         aggregate_rating: "4.1",
         rating_text: "4.1",
-        rating_subtitle: "Very Good",
-        rating_color: "5BA829",
-        votes: "521",
-        subtext: "REVIEWS",
-        is_new: false,
+        
       },
       ratingNew: {
         newlyOpenedObj: null,
