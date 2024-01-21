@@ -46,4 +46,7 @@ normal javascript functions
 2 most imp hooks in react are
 useState() - use to generate powerful state variables
 whenever a state variables updates/changes react rerenders its components. 
+
 useEffect()
+useEffect(callback function, dependancy array)
+this hook gets called just after react renders its components.
