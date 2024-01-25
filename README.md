@@ -50,3 +50,6 @@ whenever a state variables updates/changes react rerenders its components.
 useEffect()
 useEffect(callback function, dependancy array)
 this hook gets called just after react renders its components.
+It can be used to make external api calls.
+
+Shimmer UI
