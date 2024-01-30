@@ -13,7 +13,7 @@ const Body = () => {
   useEffect(() => {
     // console.log('use effect called')
     fetchData();
-  }, []);
+  });
 
   fetchData = async () => {
     const data = await fetch(
@@ -78,7 +78,8 @@ const Body = () => {
       </div>
       <div className="res-container">
         {filteredRestro.map((restro) => (
-          <ResCard key={restro.info.resId} resData={restro} />
+          (restro.info?.resId)?<ResCard key={restro.info?.resId} resData={restro} />:<></>
+          
         ))}
         {/* {swiggyResList.page_data.sections.SECTION_SEARCH_RESULT.map((restro) => (
           <ResCard key={restro.info.resId} resData={restro} />

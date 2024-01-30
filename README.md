@@ -51,5 +51,9 @@ useEffect()
 useEffect(callback function, dependancy array)
 this hook gets called just after react renders its components.
 It can be used to make external api calls.
+The dependancy array changes the behaviour of rendering of useEffect hook
+1. When dependancy array is absent = hook will be called on every time when the component is rerendered.
+2. when dependancy array is empty - [] = hook will be called on only initial render(just once)
+3. when dependancy array is not null = hook is called inly when the dependancy changes
 
 Shimmer UI
