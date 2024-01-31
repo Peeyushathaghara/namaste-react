@@ -57,3 +57,8 @@ The dependancy array changes the behaviour of rendering of useEffect hook
 3. when dependancy array is not null = hook is called inly when the dependancy changes
 
 Shimmer UI
+dummy UI which gets loaded before our original app is loaded to give a better user experience
+
+how to identify hooks in react industry - all hooks starts with word use - useState, useEffect, useRouteError
+
+react-router-dom
