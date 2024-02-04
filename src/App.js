@@ -12,7 +12,7 @@ const Applayout = () => {
     <div className="app">
       <Header />
       <Outlet />
-    </div>
+    </div> 
   );
 };
 
