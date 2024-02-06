@@ -3,6 +3,7 @@ import swiggyResList from "../utils/mockData2";
 import { useState, useEffect } from "react";
 import ResCard from "./ResCard";
 import Shimer from "./Shimer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   let swiggyList = {};
@@ -17,10 +18,12 @@ const Body = () => {
 
   fetchData = async () => {
     const data = await fetch(
+      // "https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.0076578&lng=75.5626039&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
       "https://www.zomato.com/webroutes/getPage?page_url=/mumbai/restaurants?place_name=Veermata+Jijabai+Technological+Institute%2C+Matunga%2C+Mumbai&dishv2_id=35798&location=&isMobile=0"
     );
     const json = await data.json();
-    // swiggyList = json.page_data.sections.SECTION_SEARCH_RESULT
+    // console.log(json)
+    swiggyList = json.page_data.sections.SECTION_SEARCH_RESULT
     setRestroList(json?.page_data?.sections?.SECTION_SEARCH_RESULT);
     setFilteredRestro(json?.page_data?.sections?.SECTION_SEARCH_RESULT);
   };
@@ -78,7 +81,8 @@ const Body = () => {
       </div>
       <div className="res-container">
         {filteredRestro.map((restro) => (
-          (restro.info?.resId)?<ResCard key={restro.info?.resId} resData={restro} />:<></>
+          
+          (restro.info?.resId)?<Link to={"/restaurant/" + restro.cardAction.clickUrl.split('/')} key={restro.info?.resId}><ResCard  resData={restro} /></Link>:<></>
           
         ))}
         {/* {swiggyResList.page_data.sections.SECTION_SEARCH_RESULT.map((restro) => (

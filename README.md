@@ -62,3 +62,8 @@ dummy UI which gets loaded before our original app is loaded to give a better us
 how to identify hooks in react industry - all hooks starts with word use - useState, useEffect, useRouteError
 
 react-router-dom
+
+
+https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=21.0076578&lng=75.5626039&restaurantId=201193&catalog_qa=undefined&submitAction=ENTER
+
+https://www.zomato.com/webroutes/getPage?page_url=/mumbai/oye-kake-lower-parel/info&location=&isMobile=0

@@ -1,5 +1,5 @@
 const ResCard = (props) => {
-  console.log(props)
+  // console.log(props)
   const { resData } = props;
   const { name, image, rating, cuisine } = resData?.info;
   const { deliveryTime } = resData?.order;
