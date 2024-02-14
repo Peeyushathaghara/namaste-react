@@ -94,3 +94,9 @@
     cursor: pointer;
     font-weight: bold;
 }
+
+.admin-card{
+    width: 50%;
+    padding: 10px;
+    border: 1px solid black;
+}

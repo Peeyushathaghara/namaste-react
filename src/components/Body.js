@@ -4,17 +4,19 @@ import { useState, useEffect } from "react";
 import ResCard from "./ResCard";
 import Shimer from "./Shimer";
 import { Link } from "react-router-dom";
+import useNetworkStatus from "../utils/useNetworkStatus";
 
 const Body = () => {
   let swiggyList = {};
   const [restroList, setRestroList] = useState([]);
   const [filteredRestro, setFilteredRestro] = useState([]);
   const [searchText, setSearchText] = useState("");
+  
 
   useEffect(() => {
     // console.log('use effect called')
     fetchData();
-  });
+  },[]);
 
   fetchData = async () => {
     const data = await fetch(
@@ -27,6 +29,14 @@ const Body = () => {
     setRestroList(json?.page_data?.sections?.SECTION_SEARCH_RESULT);
     setFilteredRestro(json?.page_data?.sections?.SECTION_SEARCH_RESULT);
   };
+
+  const onlineStatus = useNetworkStatus();
+  console.log("here: ", onlineStatus)
+  if(onlineStatus === "false"){
+    return(
+      <h2>Oppps....Seems your network is disconneted. Please check your internet connection once....</h2>
+    )
+  }
 
   return restroList.length === 0 ? (
     <Shimer />

@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import Shimer from "./Shimer";
 import { useParams } from "react-router-dom";
-import { EACH_RESTRO_URL } from "../utils/constants";
+// import { EACH_RESTRO_URL } from "../utils/constants";
+import useZomatoRestro from "../utils/useZomatoRestro";
 
 const EachRestaurant = () =>{
-    const [resDetails, setResDetails] = useState(null);
+    // const [resDetails, setResDetails] = useState(null);
     const {resId} = useParams();
     
 
@@ -14,18 +15,20 @@ const EachRestaurant = () =>{
         return url;
     }
     
-    useEffect (()=>{
-        fetchData();
-    },[])
+    const resDetails = useZomatoRestro(getUrl())
+
+    // useEffect (()=>{
+    //     fetchData();
+    // },[])
 
     
-    const fetchData = async() =>{
-        const data = await fetch( EACH_RESTRO_URL + getUrl())
+    // const fetchData = async() =>{
+    //     const data = await fetch( EACH_RESTRO_URL + getUrl())
 
-        const json = await data.json();
-        console.log(json);
-        setResDetails(json)
-    }
+    //     const json = await data.json();
+    //     console.log(json);
+    //     setResDetails(json)
+    // }
     
     if (resDetails === null){
         return <Shimer />
