@@ -31,7 +31,7 @@ const Body = () => {
   };
 
   const onlineStatus = useNetworkStatus();
-  console.log("here: ", onlineStatus)
+  // console.log("here: ", onlineStatus)
   if(onlineStatus === "false"){
     return(
       <h2>Oppps....Seems your network is disconneted. Please check your internet connection once....</h2>
