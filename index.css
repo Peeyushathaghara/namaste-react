@@ -1,102 +1,105 @@
-.header{
-    display: flex;
-    justify-content: space-between;
-    border: 1px solid black;
+/* .header {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
 }
 
-.logo{
-    width: 150px;
+.logo {
+  width: 150px;
 }
 
-.nav-items{
-    padding: 2%;
+.nav-items {
+  padding: 2%;
 }
 
-.nav-items > ul{
-    display: flex;
-    list-style-type: none;
+.nav-items > ul {
+  display: flex;
+  list-style-type: none;
 }
 
-.nav-items > ul >li{
-    font-size: 20px;
-    font-weight: 700;
-    padding: 0 15px;
+.nav-items > ul > li {
+  font-size: 20px;
+  font-weight: 700;
+  padding: 0 15px;
 }
 
-.search-container{
-    padding: 20px
+.search-container {
+  padding: 20px;
 }
 
-.res-card{
-    margin: 15;
-    padding: 10px;
-    width: 280px;
-    border-radius: 5%;
-    /* border: 1px solid black; */
-    background-color: #ebebeb;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+.res-card {
+  margin: 15;
+  padding: 10px;
+  width: 280px;
+  border-radius: 5%;
+  background-color: #ebebeb;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
+    rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
+    rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
 }
 
-.res-card:hover{
-    background-color: white;
-    cursor: pointer;
+.res-card:hover {
+  background-color: white;
+  cursor: pointer;
 }
 
-
-.res-logo{    
-    width: 100%;
-    border-radius: 5%;
-    height:180px;
+.res-logo {
+  width: 100%;
+  border-radius: 5%;
+  height: 180px;
 }
 
-.res-container, .shimer-container{
-    display: flex;
-    flex-wrap: wrap;
+.res-container,
+.shimer-container {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.ratings>span{
-    margin-right:20px;
+.ratings > span {
+  margin-right: 20px;
 }
 
-.top-rated-filter{
-    padding:3px;
+.top-rated-filter {
+  padding: 3px;
 }
 
-.filer-container{
-    display: flex;
-    justify-content: space-between;
-    margin: 20px 0 ;
+.filer-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
 }
 
-.filer-container>button{
-    padding: 5px;
-    margin-right: 20px;
-    cursor: pointer;
+.filer-container > button {
+  padding: 5px;
+  margin-right: 20px;
+  cursor: pointer;
 }
 
-/* .shimer-container{
-    display: flex;
-    conte
+.shimer-card {
+  margin: 15;
+  padding: 10px;
+  width: 280px;
+  border-radius: 5%;
+  height: 300px;
+  background-color: #ebebeb;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
+    rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
+    rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+
+.loginBtn {
+  padding: 5px 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.admin-card {
+  width: 50%;
+  padding: 10px;
+  border: 1px solid black;
 } */
-.shimer-card{
-    margin: 15;
-    padding: 10px;
-    width: 280px;
-    border-radius: 5%;
-    height: 300px;
-    /* border: 1px solid black; */
-    background-color: #ebebeb;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
-}
 
-.loginBtn{
-    padding: 5px 10px;
-    cursor: pointer;
-    font-weight: bold;
-}
 
-.admin-card{
-    width: 50%;
-    padding: 10px;
-    border: 1px solid black;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

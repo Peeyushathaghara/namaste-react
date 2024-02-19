@@ -42,17 +42,17 @@ const Body = () => {
     <Shimer />
   ) : (
     <div className="body">
-      <div className="filer-container">
-        <div className="search">
+      <div className="filer-container flex m-2 p-2">
+        <div className="">
           <input
             type="text"
-            className="search-bar"
+            className="form-control border-black  border-solid border-2 rounded-sm mr-2 focus:outline-none placeholder:text-black"
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
           />
 
           <button
-            className="search-btn"
+            className="p-1 mx-2 rounded-md font-medium bg-gray-400"
             onClick={() => {
               // console.log(searchText);
               const searchRes = restroList.filter((res) =>
@@ -89,7 +89,7 @@ const Body = () => {
           fetchData();
         }}>Reset Data</button> */}
       </div>
-      <div className="res-container">
+      <div className="flex flex-wrap">
         {filteredRestro.map((restro) => (
           
           (restro.info?.resId)?<Link to={"/restaurant/" + restro.cardAction.clickUrl.split('/')} key={restro.info?.resId}><ResCard  resData={restro} /></Link>:<></>
