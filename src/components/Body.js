@@ -1,22 +1,26 @@
 import swiggyResList from "../utils/mockData2";
 // import resList from "../utils/mockData";
-import { useState, useEffect } from "react";
-import ResCard from "./ResCard";
+import { useState, useEffect, useContext } from "react";
+import ResCard, { withPromoteLabel } from "./ResCard";
 import Shimer from "./Shimer";
 import { Link } from "react-router-dom";
 import useNetworkStatus from "../utils/useNetworkStatus";
+import LoggedInUser from "../utils/LoggedInUser";
 
 const Body = () => {
   let swiggyList = {};
   const [restroList, setRestroList] = useState([]);
   const [filteredRestro, setFilteredRestro] = useState([]);
   const [searchText, setSearchText] = useState("");
+  const {user, setUserName} = useContext(LoggedInUser)
   
+
+  const PromotdRestaurantCard = withPromoteLabel(ResCard);
 
   useEffect(() => {
     // console.log('use effect called')
     fetchData();
-  },[]);
+  }, []);
 
   fetchData = async () => {
     const data = await fetch(
@@ -24,18 +28,21 @@ const Body = () => {
       "https://www.zomato.com/webroutes/getPage?page_url=/mumbai/restaurants?place_name=Veermata+Jijabai+Technological+Institute%2C+Matunga%2C+Mumbai&dishv2_id=35798&location=&isMobile=0"
     );
     const json = await data.json();
-    // console.log(json)
-    swiggyList = json.page_data.sections.SECTION_SEARCH_RESULT
+    // console.log('data :',json)
+    swiggyList = json.page_data.sections.SECTION_SEARCH_RESULT;
     setRestroList(json?.page_data?.sections?.SECTION_SEARCH_RESULT);
     setFilteredRestro(json?.page_data?.sections?.SECTION_SEARCH_RESULT);
+
   };
 
   const onlineStatus = useNetworkStatus();
   // console.log("here: ", onlineStatus)
-  if(onlineStatus === "false"){
-    return(
-      <h2>Oppps....Seems your network is disconneted. Please check your internet connection once....</h2>
-    )
+  if (onlineStatus === "false") {
+    return (
+      <h2>
+        Oppps....Seems your network is disconneted. Please check your internet connection once....
+      </h2>
+    );
   }
 
   return restroList.length === 0 ? (
@@ -88,13 +95,28 @@ const Body = () => {
           // setRestroList(swiggyList)
           fetchData();
         }}>Reset Data</button> */}
+        <div className = "m-2">
+         <label> User Name : </label>
+         <input className="border border-black" value={user} onChange={(e)=>{setUserName(e.target.value)}}/>
+        </div>
       </div>
       <div className="flex flex-wrap">
-        {filteredRestro.map((restro) => (
-          
-          (restro.info?.resId)?<Link to={"/restaurant/" + restro.cardAction.clickUrl.split('/')} key={restro.info?.resId}><ResCard  resData={restro} /></Link>:<></>
-          
-        ))}
+        {filteredRestro.map((restro) =>
+          restro.info?.resId ? (
+            <Link
+              to={"/restaurant/" + restro.cardAction.clickUrl.split("/")}
+              key={restro.info?.resId}
+            >
+              {restro.isPromoted ? (
+                <PromotdRestaurantCard resData={restro} />
+              ) : (
+                <ResCard resData={restro} />
+              )}
+            </Link>
+          ) : (
+            <></>
+          )
+        )}
         {/* {swiggyResList.page_data.sections.SECTION_SEARCH_RESULT.map((restro) => (
           <ResCard key={restro.info.resId} resData={restro} />
         ))} */}

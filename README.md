@@ -67,3 +67,6 @@ react-router-dom
 https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=21.0076578&lng=75.5626039&restaurantId=201193&catalog_qa=undefined&submitAction=ENTER
 
 https://www.zomato.com/webroutes/getPage?page_url=/mumbai/oye-kake-lower-parel/info&location=&isMobile=0
+
+HighOrderComponents  (HOC)
+it is a function that takes a component and returns a component. It is basically used to added extra feature to an existng component.

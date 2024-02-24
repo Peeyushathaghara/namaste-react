@@ -1,4 +1,5 @@
 import React, { lazy, Suspense } from "react";
+import { useState, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 // import About from "./components/About";
@@ -7,6 +8,7 @@ import Body from "./components/Body";
 import Error from "./components/Error";
 // import Grocery from "./components/Grocery";
 import EachRestaurant from "./components/EachRestaurant";
+import LoggedInUser from "./utils/LoggedInUser";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -14,15 +16,30 @@ import {
   createHashRouter,
 } from "react-router-dom";
 
-const Grocery = lazy(() => {import("./components/Grocery")})
-const About = lazy(() => {import("./components/About")})
+const Grocery = lazy(() => {
+  import("./components/Grocery");
+});
+const About = lazy(() => {
+  import("./components/About");
+});
 
 const Applayout = () => {
+  const [userName, setUserName] = useState();
+
+  useEffect(() => {
+    const data = {
+      name: "Peeyush Athaghara",
+    };
+    setUserName(data.name);
+  }, []);
+
   return (
-    <div className="app">
-      <Header />
-      <Outlet />
-    </div>
+    <LoggedInUser.Provider value={{ user: userName, setUserName }}>
+      <div className="app">
+        <Header />
+        <Outlet />
+      </div>
+    </LoggedInUser.Provider>
   );
 };
 
@@ -40,7 +57,11 @@ const AppRouter = createBrowserRouter([
       {
         path: "/about",
         // element: <About />,
-        element:<Suspense fallback={ <h1>Wait...</h1> }><About /></Suspense>,
+        element: (
+          <Suspense fallback={<h1>Wait...</h1>}>
+            <About />
+          </Suspense>
+        ),
       },
       {
         path: "/contact",
@@ -48,10 +69,12 @@ const AppRouter = createBrowserRouter([
       },
       {
         path: "/grocery",
-        element: <Suspense fallback={ <h1>Wait...</h1> }><Grocery /></Suspense>
+        element: (
+          <Suspense fallback={<h1>Wait...</h1>}>
+            <Grocery />
+          </Suspense>
+        ),
         // element : <React.Suspense fallback={<h3>Loading...</h3>}><Grocery /></React.Suspense>
-        
-        
       },
       {
         path: "/restaurant/:resId",
