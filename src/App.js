@@ -15,6 +15,10 @@ import {
   Outlet,
   createHashRouter,
 } from "react-router-dom";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
+
 
 const Grocery = lazy(() => {
   import("./components/Grocery");
@@ -34,12 +38,14 @@ const Applayout = () => {
   }, []);
 
   return (
-    <LoggedInUser.Provider value={{ user: userName, setUserName }}>
+    <Provider store = {appStore}>
+      <LoggedInUser.Provider value={{ user: userName, setUserName }}>
       <div className="app">
         <Header />
         <Outlet />
       </div>
     </LoggedInUser.Provider>
+    </Provider>
   );
 };
 
@@ -79,6 +85,10 @@ const AppRouter = createBrowserRouter([
       {
         path: "/restaurant/:resId",
         element: <EachRestaurant />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
   },
